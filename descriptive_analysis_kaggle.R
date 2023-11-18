@@ -60,6 +60,7 @@ data <- dados %>%
   gather(key = "text", value = "value") %>%
   mutate(text = gsub("\\.", " ",text)) %>%
   mutate(value = as.integer(value)) %>%
+  mutate(value = round(as.numeric(value),0)) %>%
   mutate(text = fct_reorder(text, value)) 
 view(data)
 
