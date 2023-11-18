@@ -74,3 +74,4 @@ data <- dados %>%
   facet_wrap(~text, scales = "free")
 
 data
+
