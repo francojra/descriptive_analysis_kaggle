@@ -20,18 +20,34 @@ View(dados)
 glimpse(dados)
 names(dados)
 
-# Descrição com função summary() -----------------------------------------------------------------------------------------------------------
+# Estatística descritiva com a função summary() --------------------------------------------------------------------------------------------
 
 summary(dados$anxiety_level)
 summary(dados$self_esteem)
 summary(dados$depression)
-sleep_quality
-noise_level
-living_conditions
-basic_needs
-study_load
-academic_performance
-teacher_student_relationship
-social_support
-bullying
-stress_level
+summary(dados$sleep_quality)
+summary(dados$noise_level)
+summary(dados$living_conditions)
+summary(dados$basic_needs)
+summary(dados$study_load)
+summary(dados$academic_performance)
+summary(dados$teacher_student_relationship)
+summary(dados$social_support)
+summary(dados$bullying)
+summary(dados$stress_level)
+
+# Estatística descritiva com a função describe() -------------------------------------------------------------------------------------------
+
+describe(dados$anxiety_level)
+describe(dados$self_esteem)
+describe(dados$depression)
+describe(dados$sleep_quality)
+describe(dados$noise_level)
+describe(dados$living_conditions)
+describe(dados$basic_needs)
+describe(dados$study_load)
+describe(dados$academic_performance)
+describe(dados$teacher_student_relationship)
+describe(dados$social_support)
+describe(dados$bullying)
+describe(dados$stress_level)
