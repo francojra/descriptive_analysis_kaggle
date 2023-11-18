@@ -97,7 +97,9 @@ plot_correlation(dados)
 #plot_correlation(na.omit(dados), type = "d")
 plot_qq(dados)
 plot_prcomp(dados)
-plot_boxplot(dados, by = "anxiety_level")
+df <- dados[, c("anxiety_level", "study_load", "bullying", "sleep_quality")]
+plot_boxplot(df, by = "anxiety_level")
+plot_scatterplot(df, by = "anxiety_level")
 
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
 
