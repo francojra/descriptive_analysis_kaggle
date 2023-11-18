@@ -12,6 +12,7 @@ library(viridis)
 library(psych)
 library(Hmisc)
 library(pastecs)
+library(DataExplorer)
 
 # Carregar dados ---------------------------------------------------------------------------------------------------------------------------
 
@@ -75,6 +76,15 @@ describe(dados)
 # Estatística descritiva com o pacote pastecs ----------------------------------------------------------------------------------------------
 
 stat.desc(dados)
+
+# Relatório completo com análises exploratórias --------------------------------------------------------------------------------------------
+
+relatorio <- 
+  dados %>%
+    create_report(
+        output_file = paste("Relatorio_Estatística_Descritiva"),
+        report_title = "Dataset Kaggle - Estatística Descritiva"
+    )
 
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
 
