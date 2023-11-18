@@ -56,9 +56,6 @@ describe(dados$stress_level)
 
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
 
-dados <- dados %>%
-  select(anxiety_level, self_esteem, depression)
-
 data <- dados %>%
   gather(key = "text", value = "value") %>%
   mutate(text = gsub("\\.", " ",text)) %>%
