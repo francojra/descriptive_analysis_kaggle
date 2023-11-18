@@ -57,14 +57,14 @@ describe(dados$stress_level)
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
 
 dados <- dados %>%
-  select(anxiety_level, self_esteem, depression, study_load)
+  select(anxiety_level, self_esteem, depression)
 
 data <- dados %>%
   gather(key = "text", value = "value") %>%
   mutate(text = gsub("\\.", " ",text)) %>%
   mutate(text = fct_reorder(text, value)) %>%
   ggplot(aes(x = value, color = text, fill = text)) +
-  geom_histogram(alpha = 0.6, binwidth = 5) +
+  geom_histogram(alpha = 0.6) +
   scale_fill_viridis(discrete = TRUE) +
   scale_color_viridis(discrete = TRUE) +
   theme_ipsum() +
