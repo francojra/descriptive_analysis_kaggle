@@ -56,13 +56,14 @@ describe(dados$stress_level)
 
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
 
+dados <- dados %>%
+  select(anxiety_level, self_esteem, depression, study_load)
+
 data <- dados %>%
   gather(key = "text", value = "value") %>%
   mutate(text = gsub("\\.", " ",text)) %>%
   mutate(text = fct_reorder(text, value)) %>%
-
-
-ggplot(aes(x = value, color = text, fill = text)) +
+  ggplot(aes(x = value, color = text, fill = text)) +
   geom_histogram(alpha = 0.6, binwidth = 5) +
   scale_fill_viridis(discrete = TRUE) +
   scale_color_viridis(discrete = TRUE) +
@@ -72,5 +73,7 @@ ggplot(aes(x = value, color = text, fill = text)) +
     panel.spacing = unit(0.1, "lines"),
     strip.text.x = element_text(size = 8)) +
   xlab("") +
-  ylab("Assigned Probability (%)") +
+  ylab("Frequência") +
   facet_wrap(~text)
+
+data
