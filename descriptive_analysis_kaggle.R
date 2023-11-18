@@ -59,8 +59,11 @@ describe(dados$stress_level)
 data <- dados %>%
   gather(key = "text", value = "value") %>%
   mutate(text = gsub("\\.", " ",text)) %>%
-  mutate(text = fct_reorder(text, value)) %>%
-  ggplot(aes(x = value, color = text, fill = text)) +
+  mutate(value = as.integer(value)) %>%
+  mutate(text = fct_reorder(text, value)) 
+view(data)
+
+ggplot(data, aes(x = as.integer(value), color = text, fill = text)) +
   geom_histogram(alpha = 0.6) +
   scale_fill_viridis(discrete = TRUE) +
   scale_color_viridis(discrete = TRUE) +
@@ -73,5 +76,4 @@ data <- dados %>%
   ylab("Frequência") +
   facet_wrap(~text, scales = "free")
 
-data
 
