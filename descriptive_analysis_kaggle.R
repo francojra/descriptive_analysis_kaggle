@@ -18,3 +18,20 @@ dados <- read.csv('StressLevelDataset.csv') # Para datasets separados por ",".
 
 View(dados)
 glimpse(dados)
+names(dados)
+
+# Descrição com função summary() -----------------------------------------------------------------------------------------------------------
+
+summary(dados$anxiety_level)
+summary(dados$self_esteem)
+summary(dados$depression)
+sleep_quality
+noise_level
+living_conditions
+basic_needs
+study_load
+academic_performance
+teacher_student_relationship
+social_support
+bullying
+stress_level
