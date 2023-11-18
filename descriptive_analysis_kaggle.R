@@ -71,6 +71,6 @@ data <- dados %>%
     strip.text.x = element_text(size = 8)) +
   xlab("") +
   ylab("Frequência") +
-  facet_wrap(~text)
+  facet_wrap(~text, scales = "free")
 
 data
