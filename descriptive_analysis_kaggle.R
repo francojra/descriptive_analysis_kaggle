@@ -82,9 +82,22 @@ stat.desc(dados)
 relatorio <- 
   dados %>%
     create_report(
-        output_file = paste("Relatorio_Estatística_Descritiva"),
+        output_file = "report.pdf", 
+        output_format = "pdf_document",
         report_title = "Dataset Kaggle - Estatística Descritiva"
     )
+
+plot_str(dados)
+plot_intro(dados)
+plot_missing(dados)
+plot_histogram(dados)
+plot_bar(dados) # Para variáveis categóricas
+plot_correlation(dados)
+#plot_correlation(na.omit(dados), type = "c")
+#plot_correlation(na.omit(dados), type = "d")
+plot_qq(dados)
+plot_prcomp(dados)
+plot_boxplot(dados, by = "anxiety_level")
 
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
 
