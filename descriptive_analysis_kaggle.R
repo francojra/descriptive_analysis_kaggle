@@ -2,6 +2,7 @@
 # Estatística descritiva - Dataset Kaggle --------------------------------------------------------------------------------------------------
 # Autoria do script: Jeanne Franco ---------------------------------------------------------------------------------------------------------
 # Data: 17/11/23 ---------------------------------------------------------------------------------------------------------------------------
+# Fonte dos dados: https://www.kaggle.com/datasets/rxnach/student-stress-factors-a-comprehensive-analysis ----------------------------------
 
 # Carregar pacotes -------------------------------------------------------------------------------------------------------------------------
 
@@ -100,28 +101,4 @@ plot_prcomp(dados)
 df <- dados[, c("anxiety_level", "study_load", "bullying", "sleep_quality")]
 plot_boxplot(df, by = "anxiety_level")
 plot_scatterplot(df, by = "anxiety_level")
-
-# Gráficos ---------------------------------------------------------------------------------------------------------------------------------
-
-data <- dados %>%
-  gather(key = "text", value = "value") %>%
-  mutate(text = gsub("\\.", " ",text)) %>%
-  mutate(value = as.integer(value)) %>%
-  mutate(value = round(as.numeric(value),0)) %>%
-  mutate(text = fct_reorder(text, value)) 
-view(data)
-
-ggplot(data, aes(x = as.integer(value), color = text, fill = text)) +
-  geom_histogram(alpha = 0.6) +
-  scale_fill_viridis(discrete = TRUE) +
-  scale_color_viridis(discrete = TRUE) +
-  theme_ipsum() +
-  theme(
-    legend.position = "none",
-    panel.spacing = unit(0.1, "lines"),
-    strip.text.x = element_text(size = 8)) +
-  xlab("") +
-  ylab("Frequência") +
-  facet_wrap(~text, scales = "free")
-
 
